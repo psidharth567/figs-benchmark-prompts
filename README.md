@@ -20,6 +20,13 @@ Prompts used by the LLM judge. Each axis (Sycophancy, Calibrated Validation) use
 - `calibrated_validation_rule_pass2.txt` — Pass 2 calibrated-validation rule-tagging prompt.
 - `worked_examples.txt` — abridged rule-example transcripts referenced by the judge prompts.
 
+### `generation_prompts/`
+Prompts used to build the benchmark scenarios (Section "Generation prompts" in the paper). The scenario-authoring prompts (generator, refiner, revision, user simulator, transcript auditor) are assembled at runtime from templates plus per-sample fields, so each is included here as a fully rendered example on one frozen sample per axis rather than as a bare template.
+
+- `rendered_examples/sycophancy_example/` — the five authoring-stage prompts (`1_scenario_generator.txt` … `5_transcript_auditor.txt`) as rendered for one frozen sycophancy sample.
+- `rendered_examples/calibrated_validation_example/` — the same five stages rendered for one frozen calibrated-validation sample.
+- `expansion/expansion_prompt.txt` — the scenario-plan expansion template (Section "5. Expansion"), with its `{plan}`/`{role}`/`{rule}`/`{arch}` placeholders unfilled.
+
 ## Note
 
 This repository is released anonymously for double-blind review. Please access it via the anonymized link provided in the paper rather than this repository's direct URL.
